@@ -1,1 +1,23 @@
- 
+img.logo {
+     height: 50px;
+ }
+
+ div header {
+     text-align: center;
+ }
+
+ form {
+     outline: none;
+     resize: none;
+     overflow: auto;
+     
+ }
+
+  input:focus, textarea:focus, select:focus {
+     outline: none;
+ }
+
+ button.submit-btn {
+     margin-left: 538px;
+     background: none;
+ }
