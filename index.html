@@ -4,9 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Speak Your Mind</title>
+    <link rel="shortcut icon" type="image/png" href="./images/clouds.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2a4d3a74ab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"> <img class ="logo" src="./images/logo.png" alt="speak your mind logo"> </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="allposts.html">Posts</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- main body -->
+
+        <!-- welcome paragraph -->
+        <div class="d-flex p-2 justify-content-center my-4">
+            <header>
+                <h2>Welcome to Speak Your Mind!</h2>
+                <p>To get started, type in what you want to post into the text box below.</p>
+            </header>
+        </div>
+
+        <!-- input box -->
+    <main>
+        <div class="d-flex justify-content-around">
+            <section>
+                <form action="allposts.html">
+                    <div class="col">
+                        <!-- <label for="inputJournal" class="form-label"></label> -->
+                        <textarea class="form-control" id="inputJournal" rows="25" cols="3" placeholder="Start typing..." mx-4 maxlength="300"></textarea>
+                        <button type="submit" class="submit-btn mt-1 btn btn-light"><i class="far fa-paper-plane"></i></button>
+                      </div>
+                    </form>
+            </section>
+
+            <!-- list of entries -->
+                    <div class="jumbotron">
+                        <div class="container">
+                            <h3>Placeholder</h3>
+                            <p>placeholder for list of entries</p>
+                        </div>
+                    </div>
+        </div>
+
+        
+    </main>
+
+    <!-- possible footer -->
+    <footer>
+
+    </footer>
+
 </body>
 </html>
