@@ -21,3 +21,8 @@ img.logo {
      margin-left: 538px;
      background: none;
  }
+
+ .container {
+     border: 1px lightgray solid;
+     border-radius: 3px;
+ }
