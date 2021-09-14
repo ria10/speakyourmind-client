@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "build": "browserify script.js -o bundle.js",
     "test": "jest --color --silent --watchAll",
     "coverage": "jest --coverage"
   },
@@ -21,10 +22,12 @@
   },
   "homepage": "https://github.com/ria10/speakyourmind-client#readme",
   "devDependencies": {
+    "browserify": "^17.0.0",
     "jest": "^27.1.1",
     "supertest": "^6.1.6"
   },
   "dependencies": {
-    "axios": "^0.21.4"
+    "axios": "^0.21.4",
+    "toastify-js": "^1.11.1"
   }
 }
