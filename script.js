@@ -1,36 +1,26 @@
-const submitBtn = document.querySelector(".submit-btn");
-const textInput = document.querySelector("#inputJournal");
-const form = document.querySelector("form");
+const submitBtn = document.querySelector('.submit-btn');
+const textInput = document.querySelector('#inputJournal')
 
-//   submitBtn.addEventListener('click', async(e)=>{
-//       e.preventDefault();
-//       const post = textInput.value
-//       const payload = {
-//           "text":post
-//       }
-//       console.log(post)
-//      const data = await fetch('http://localhost:50001/posts/',{headers:{'Accept':'application/json', 'content-Type':'application/json'}}, {method:"POST", body:JSON.stringify(payload)} )
-//     const res = await data.json();
-//     console.log(res);
-//   })
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const post = textInput.value;
-  const payload = {
-    text: post,
-  };
-  console.log(post);
-  const data = await fetch(
-    "http://localhost:3000/posts/",
-    {
+  submitBtn.addEventListener('click', async(e)=>{
+      e.preventDefault();
+    try{ 
+      const rawResponse = await fetch('http://localhost:3000/posts', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "content-Type": "application/json",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
-    },
-    { method: "POST", body: JSON.stringify(payload) }
-  );
-  const res = await data.json();
-  console.log(res);
-});
+      body: JSON.stringify({text: textInput.value})
+    });
+    const content = await rawResponse.json();
+  
+    console.log(content);
+  } catch (err) {
+      console.warn(err);
+  }})
+
+
+
+
+
+
