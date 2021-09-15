@@ -1,5 +1,6 @@
 window.onload = async function () {
   const postId = localStorage.getItem("reqId");
+  const giphId = localStorage.getItem("giphId");
 
   const commentsTable = document.querySelector(".commentsTable");
   const likesCount = document.querySelector("#likesCount");
@@ -12,10 +13,19 @@ window.onload = async function () {
   const rawData = await fetch(`http://localhost:3000/posts/${postId}`);
 
   const post = await rawData.json();
+  if (post.text.includes("giphy")) {
+    const im = document.createElement("img");
+    im.src = post.text;
+    postDate.textContent = post.date;
+    im.setAttribute("id", post.id);
+    const containerDiv = document.querySelector(".structure");
 
-  postText.textContent = post.text;
-  postDate.textContent = post.date;
-  likesCount.textContent = post.likes;
+    containerDiv.insertBefore(im, containerDiv.firstChild);
+  } else {
+    postText.textContent = post.text;
+    postDate.textContent = post.date;
+    likesCount.textContent = post.likes;
+  }
 
   //get comments on pageload
   const postComment = await fetch(
@@ -29,7 +39,7 @@ window.onload = async function () {
   for (comment of allComments) {
     const td = document.createElement("td");
     const tr = document.createElement("tr");
-    td.innerHTML = `<h6 class="commentText">${comment.text}</h6>  <span>posted on ${comment.date}</span>`;
+    td.innerHTML = `<h6 class="commentText">${comment.text}</h6>  <span id="dateTime">posted on ${comment.date}</span>`;
 
     commentsTable.insertBefore(tr, commentsTable.firstChild);
     //tr.append(td);

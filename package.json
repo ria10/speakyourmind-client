@@ -7,8 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "browserify script.js -o bundle.js",
-    "test": "jest --color --silent --watchAll",
+    "test": "jest --color --watchAll",
     "coverage": "jest --coverage"
   },
   "repository": {

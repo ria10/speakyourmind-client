@@ -58,14 +58,36 @@ window.onload = async function () {
   const content = await rawResponse.json();
 
   for (post of content) {
-    let h5 = document.createElement("h5");
-    h5.textContent = post.text;
-    let p = document.createElement("p");
-    p.textContent = post.date;
-    document.getElementById("container").append(h5);
-    document.getElementById("container").append(p);
+    if (post.text.includes("giphy")) {
+      const image = document.createElement("img");
+      image.src = post.text;
+      let parag = document.createElement("p");
+      parag.textContent = post.date;
+      image.setAttribute("id", post.id);
+      document.getElementById("container").append(image);
+      document.getElementById("container").append(parag);
+      image.addEventListener("click", async () => {
+        const requiredGiph = image.getAttribute("id");
+        console.log(requiredGiph);
+        localStorage.setItem("giphId", requiredGiph);
+        const items = localStorage.getItem("giphId");
+        console.log(items);
+        const item = await fetch(`http://localhost:3000/posts/${requiredGiph}`);
 
-    h5.setAttribute("id", post.id);
+        const postData = await item.json();
+
+        window.location.replace("singlepost.html");
+      });
+    } else {
+      let h5 = document.createElement("h5");
+      h5.textContent = post.text;
+      let p = document.createElement("p");
+      p.textContent = post.date;
+      document.getElementById("container").append(h5);
+      document.getElementById("container").append(p);
+
+      h5.setAttribute("id", post.id);
+    }
 
     h5.addEventListener("click", async () => {
       const mussi = h5.getAttribute("id");
@@ -91,6 +113,8 @@ document
   .querySelector("#getGiphButton")
   .addEventListener("click", async (e) => {
     e.preventDefault();
+
+    document.querySelector("#giphList").classList.remove("hideClass");
     const api_key = "XHHSRhHzei2l9q5PR4CZCCn3R3ZVEH81";
     const giphyType = document.getElementById("giphy").value;
 
@@ -105,4 +129,46 @@ document
     const imgs = document.querySelector(".selectedImg");
 
     imgs.src = result.data[0].images.fixed_height.url;
+    localStorage.setItem("imgUrl", imgs.src);
+  });
+
+document
+  .querySelector("#getListButton")
+  .addEventListener("click", async (e) => {
+    e.preventDefault();
+    const imgUrl = localStorage.getItem("imgUrl");
+    console.log(imgUrl);
+    const rawResponse = await fetch(`${baseUrl}/posts`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: imgUrl }),
+    });
+
+    const content = await rawResponse.json();
+    console.log(content);
+
+    console.log(content);
+    Toastify({
+      text: "Post created successfully",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "left", // `left`, `center` or `right`
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      onClick: function () {}, // Callback after click
+    }).showToast();
+
+    const img = document.createElement("img");
+    img.src = content.text;
+    p.textContent = content.date;
+    img.setAttribute("id", content.id);
+    const containerDiv = document.querySelector("#container");
+
+    containerDiv.insertBefore(p, containerDiv.firstChild);
+
+    containerDiv.insertBefore(img, containerDiv.firstChild);
   });
