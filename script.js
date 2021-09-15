@@ -113,27 +113,16 @@
       const api_key = "XHHSRhHzei2l9q5PR4CZCCn3R3ZVEH81"
       const giphyType = document.getElementById('giphy').value
 
-      const giphs = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&limit=3&rating=g&q=${giphyType}`)
+      const giphs = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&limit=1&rating=g&q=${giphyType}`)
 
       const result = await giphs.json()
       console.log(result.data)
-      for(let i= 0; i < result.data.length; i++){
-          console.log(result.data[i].images.downsized.url)
-          const allImgs = document.querySelectorAll('.selectedImg');
-          for(let j= 0; j < allImgs.length; j++){
-              allImgs[j].src = result.data[i].images.downsized.url
-          }
-      }
       
-      
-      
-    //   for (giph in result){
-    //       console.log(giph)
-    //       const allImgs = document.querySelectorAll('.selectedImg');
-    //       for(img of allImgs){
-    //           img.src = giph
-    //       }
-    //   }
+          result.data[0].images.fixed_height.url
+          const imgs = document.querySelector('.selectedImg');
+          
+              imgs.src = result.data[0].images.fixed_height.url
+          
 
     
 
