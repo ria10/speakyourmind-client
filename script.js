@@ -1,6 +1,7 @@
 const submitBtn = document.querySelector(".submit-btn");
 const textInput = document.querySelector("#inputJournal");
 const baseUrl = "http://localhost:3000";
+const imge = document.querySelector("img");
 
 h5 = document.querySelector(".post-text");
 p = document.querySelector(".post-date");
@@ -66,17 +67,20 @@ window.onload = async function () {
       image.setAttribute("id", post.id);
       document.getElementById("container").append(image);
       document.getElementById("container").append(parag);
+
       image.addEventListener("click", async () => {
         const requiredGiph = image.getAttribute("id");
         console.log(requiredGiph);
         localStorage.setItem("giphId", requiredGiph);
-        const items = localStorage.getItem("giphId");
-        console.log(items);
-        const item = await fetch(`http://localhost:3000/posts/${requiredGiph}`);
 
-        const postData = await item.json();
+        const giphyItem = await fetch(
+          `http://localhost:3000/posts/${requiredGiph}`
+        );
+        const giphyData = await giphyItem.json();
+        localStorage.setItem("gifs", giphyData.id);
+        alert(giphyData.id);
 
-        window.location.replace("singlepost.html");
+        window.location.href = "singlepost.html";
       });
     } else {
       let h5 = document.createElement("h5");
@@ -87,20 +91,19 @@ window.onload = async function () {
       document.getElementById("container").append(p);
 
       h5.setAttribute("id", post.id);
+      h5.addEventListener("click", async () => {
+        const mussi = h5.getAttribute("id");
+        console.log(mussi);
+        localStorage.setItem("reqId", mussi);
+        const items = localStorage.getItem("reqId");
+        console.log(items);
+        const item = await fetch(`http://localhost:3000/posts/${mussi}`);
+
+        const postData = await item.json();
+
+        window.location.href = "singlepost.html";
+      });
     }
-
-    h5.addEventListener("click", async () => {
-      const mussi = h5.getAttribute("id");
-      console.log(mussi);
-      localStorage.setItem("reqId", mussi);
-      const items = localStorage.getItem("reqId");
-      console.log(items);
-      const item = await fetch(`http://localhost:3000/posts/${mussi}`);
-
-      const postData = await item.json();
-
-      window.location.replace("singlepost.html");
-    });
   }
 };
 
@@ -131,45 +134,4 @@ document
 
     imgs.src = result.data[0].images.fixed_height.url;
     localStorage.setItem("imgUrl", imgs.src);
-  });
-
-document
-  .querySelector("#getListButton")
-  .addEventListener("click", async (e) => {
-    e.preventDefault();
-    const imgUrl = localStorage.getItem("imgUrl");
-    console.log(imgUrl);
-    const rawResponse = await fetch(`${baseUrl}/posts`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text: imgUrl }),
-    });
-
-    const content = await rawResponse.json();
-    console.log(content);
-
-    console.log(content);
-    Toastify({
-      text: "Post created successfully",
-      duration: 3000,
-      close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "left", // `left`, `center` or `right`
-      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      onClick: function () {}, // Callback after click
-    }).showToast();
-
-    const img = document.createElement("img");
-    img.src = content.text;
-    p.textContent = content.date;
-    img.setAttribute("id", content.id);
-    const containerDiv = document.querySelector("#container");
-
-    containerDiv.insertBefore(p, containerDiv.firstChild);
-
-    containerDiv.insertBefore(img, containerDiv.firstChild);
   });

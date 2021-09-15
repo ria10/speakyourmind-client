@@ -1,6 +1,7 @@
 window.onload = async function () {
   const postId = localStorage.getItem("reqId");
-  const giphId = localStorage.getItem("giphId");
+  console.log(postId);
+  const gifs = localStorage.getItem("gifs");
 
   const commentsTable = document.querySelector(".commentsTable");
   const likesCount = document.querySelector("#likesCount");
@@ -13,21 +14,12 @@ window.onload = async function () {
   const rawData = await fetch(`http://localhost:3000/posts/${postId}`);
 
   const post = await rawData.json();
-  if (post.text.includes("giphy")) {
-    const im = document.createElement("img");
-    im.src = post.text;
-    postDate.textContent = post.date;
-    im.setAttribute("id", post.id);
-    const containerDiv = document.querySelector(".structure");
+  console.log(post);
 
-    containerDiv.insertBefore(im, containerDiv.firstChild);
-  } else {
-    postText.textContent = post.text;
-    postDate.textContent = post.date;
-    likesCount.textContent = post.likes;
-  }
+  postText.textContent = post.text;
+  postDate.textContent = post.date;
+  likesCount.textContent = post.likes;
 
-  //get comments on pageload
   const postComment = await fetch(
     `http://localhost:3000/post/${postId}/comment`
   );
@@ -160,3 +152,5 @@ window.onload = async function () {
 
   cryCount.textContent = post.crying.length;
 };
+
+//get comments on pageload
