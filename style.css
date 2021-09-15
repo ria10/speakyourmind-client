@@ -1,3 +1,45 @@
+body {
+  background: #F5F6FA;
+}
+
+h5 {
+  font-family: 'Nunito', 'sans-serif';
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Nunito', 'sans-serif';
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Nunito', 'sans-serif';
+}
+
+#navbar {
+  background-color: #CDD8E5;
+}
+
+/* li a {
+  color: #004D98 !important; 
+} */
+
+#inputJournal {
+  background-color: #F5F6FA;
+  margin-bottom: 5px;
+  font-family: 'Nunito', 'sans-serif';
+}
+
+.btn {
+  background-color: #84BEE4;
+  font-family: 'Nunito', 'sans-serif';
+}
+
+.items {
+  display: flex;
+  justify-content: space-around;
+}
+
 img.logo {
   height: 50px;
 }
@@ -22,16 +64,38 @@ select:focus {
 
 button.submit-btn {
   margin-left: 538px;
-  background: none;
 }
 
-.container {
+#container {
   /* text-align: center; */
   margin-top: 50px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  width: 300px;
+  height: 380px;
+  overflow: auto;
+}
+
+.structure {
+  margin-top: 50px;
+  padding-left: 100px;
+  flex-shrink: 3;
 }
 
 h4 {
+  margin-top: 50px;
   margin-left: 60px;
+  font-family: 'Nunito', 'sans-serif';
+  font-weight: bold;
+}
+h6 {
+  font-family: 'Nunito', 'sans-serif';
+  font-weight: bolder;
+}
+#dateTime {
+  margin-top: -5px;
+  font-family: 'Nunito', 'sans-serif';
+  color: gray;
 }
 
 .items {
@@ -44,6 +108,28 @@ h4 {
   display: none;
 }
 
-.post-text {
+h5.post-text {
   cursor: pointer;
+}
+
+/* .commentsTable {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+} */
+
+#inputComment {
+  font-family: 'Nunito', 'sans-serif';
+}
+
+.comments {
+  /* width: 40%; */
+  /* padding-left: 50px; */
+  padding: auto;
+  margin: auto;
+  height: 380px;
+  overflow: auto;
+}
+
+#commentButton {
+  margin-top: 5px;
 }

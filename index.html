@@ -7,7 +7,10 @@
     <title>Speak Your Mind</title>
     <link rel="shortcut icon" type="image/png" href="./images/clouds.png">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/2a4d3a74ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -18,7 +21,7 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html"> <img class ="logo" src="./images/logo.png" alt="speak your mind logo"> </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,10 +60,10 @@
                 <form action="allposts.html">
                     <div class="col">
                         <!-- <label for="inputJournal" class="form-label"></label> -->
-                        <textarea class="form-control" id="inputJournal" rows="15" cols="5" placeholder="Start typing..." mx-4 maxlength="300"></textarea>
-                     
-                          <button type="submit" id="submit-btn" class="submit-btn mt-1 btn btn-light"><i class="far fa-paper-plane"></i></button>
-                         <button id="getGiph">Add a giph</button>
+                        <textarea class="form-control" id="inputJournal" rows="15" cols="5" placeholder="What's on your mind?" mx-4 maxlength="300"></textarea>
+                        
+                          <button type="submit" id="submit-btn" class="submit-btn mt-1 btn"><i class="far fa-paper-plane"></i></button>
+                         <button class="btn"id="getGiph">Add a gif</button>
                        
                         
           
@@ -73,7 +76,7 @@
                         </div>
                       </form>
 
-                      <form action="" class="" id="giphList">
+                      <form action="" class="hideClass" id="giphList">
                         <div class="col">
                             <!-- <label for="inputJournal" class="form-label"></label> -->
                             <label for="c"><img class="selectedImg" src="" alt=""></label>
@@ -88,6 +91,9 @@
                     
                     <div class="jumbotron">
                         <div class="container" id="container">
+                          
+                            <h5 class="post-text"></h5>
+                            <p class="post-date"></p>
                             
                         </div>
                     </div>
