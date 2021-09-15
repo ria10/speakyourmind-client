@@ -1,12 +1,18 @@
 window.onload = async function (){
    const ria =  localStorage.getItem('reqId')
-   const h5  = document.createElement('h5')
-   const p = document.createElement('p')
-   const containerDiv = document.querySelector('.container')
-   const btn = document.createElement('button')
-   btn.textContent = 'Add a comment'
-   btn.setAttribute('class', 'btn btn-primary addBtn')
-   const commentsTable = document.querySelector('.commentsTable')
+//    const h5  = document.createElement('h5')
+//    const p = document.createElement('p')
+//    const containerDiv = document.querySelector('.container')
+//    const btn = document.createElement('button')
+//    btn.textContent = 'Add a comment'
+//    btn.setAttribute('class', 'btn btn-primary addBtn')
+     const commentsTable = document.querySelector('.commentsTable')
+    const likesCount = document.querySelector('#likesCount')
+    const laughCount = document.querySelector('#laughCount')
+    const cryCount = document.querySelector('#cryCount')
+
+const postText = document.querySelector('#post-text')
+const postDate = document.querySelector('#post-date')
 
   const rawData = await fetch(`http://localhost:3000/posts/${ria}`)
 
@@ -18,14 +24,10 @@ window.onload = async function (){
   
   
 const post = await rawData.json()
-  console.log(post)
-  h5.textContent = post.text;
-  p.textContent = post.date
-
- containerDiv.append(h5)
- containerDiv.append(p)
- containerDiv.append(btn)
-
+  
+postText.textContent = post.text
+postDate.textContent = post.date
+likesCount.textContent = post.likes
  
 //get comments on pageload
 const postComment = await fetch(`http://localhost:3000/post/${ria}/comment`)
@@ -105,7 +107,60 @@ for(comment of allComments){
  
  })
 
-   
+  document.querySelector('.likesButton').addEventListener('click', async(e)=>{
+      e.preventDefault();
+      const currentLikes = await fetch(`http://localhost:3000/post/${ria}/likes`,{
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: ""
+      })
+      const likes = await currentLikes.json()
+      console.log(likes)
+      likesCount.textContent = likes.length;
+
+  }) 
+
+  likesCount.textContent = post.likes.length
+
+
+  document.querySelector('.laughButton').addEventListener('click', async(e)=>{
+    e.preventDefault();
+    const currentLikes = await fetch(`http://localhost:3000/post/${ria}/laugh`,{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: ""
+    })
+    const laughed = await currentLikes.json()
+    console.log(laughed)
+    laughCount.textContent = laughed.length;
+
+}) 
+
+laughCount.textContent = post.laughed.length
+
+document.querySelector('.cryButton').addEventListener('click', async(e)=>{
+    e.preventDefault();
+    const currentLikes = await fetch(`http://localhost:3000/post/${ria}/crying`,{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: ""
+    })
+    const cried = await currentLikes.json()
+    console.log(cried)
+    cryCount.textContent = cried.length;
+
+}) 
+
+cryCount.textContent = post.cried.length
 
 }
 
