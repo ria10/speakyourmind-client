@@ -43,3 +43,7 @@ h4 {
 .hideClass {
   display: none;
 }
+
+.post-text {
+  cursor: pointer;
+}
