@@ -54,31 +54,36 @@
     <main>
         <div class="d-flex justify-content-around">
             <section>
-                <form action="allposts.html">
+                <form id="formArea"action="">
                     <div class="col">
                         <!-- <label for="inputJournal" class="form-label"></label> -->
-                        <textarea class="form-control" id="inputJournal" rows="15" cols="5" placeholder="What's on your mind?" mx-4 maxlength="300"></textarea>
-                        
+                        <textarea class="form-control" id="inputJournal" rows="15" cols="60" placeholder="What's on your mind?" mx-4 maxlength="300"></textarea>
+                        <div id="btn d-inline-flex flex-row justify-content-end">
+
                           <button type="submit" id="submit-btn" class="submit-btn mt-1 btn"><i class="far fa-paper-plane"></i></button>
-                         <button class="btn"id="getGiph">Add a gif</button>
+                         <button class="btn" id="getGiph">Add a gif</button>
+                         <div class="col hideClass" id="giphForm">
+                           <div class="d-flex flex-row justify-content-end">
+                             <!-- <label for="inputJournal" class="form-label"></label> -->
+                             <input type="text" id="giphy" placeholder="Search for a gif">
+                             <input type="submit" id="getGiphButton" value="Search" class="btn">
+
+                           </div>
+                           </div>
+                        
+                        </div>
                        
                         
           
                     </form>
-                    <form action="" class="hideClass" id="giphForm">
-                      <div class="col">
-                          <!-- <label for="inputJournal" class="form-label"></label> -->
-                          <input type="text" id="giphy" placeholder="Search a giph">
-                          <input type="submit" id="getGiphButton" value="get the giph" class="btn btn-danger">
-                        </div>
-                      </form>
+                    <!-- <form action="" class="hideClass" id="giphForm">
+                      </form> -->
 
                       <form action="" class="hideClass" id="giphList">
                         <div class="col">
                             <!-- <label for="inputJournal" class="form-label"></label> -->
                             <label for="c"><img class="selectedImg" src="" alt=""></label>
-                            <input type="radio" name="selectedGif" id="c" value="">
-                            <input type="submit" id="getListButton" value="get the giph" class="btn btn-danger">
+                            <input type="submit" id="getListButton" value="Choose" class="btn">
                           </div>
                         </form>
 

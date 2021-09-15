@@ -6,6 +6,19 @@ li {
   font-family: 'Nunito', 'sans-serif';
 }
 
+
+
+input[type="text"] {
+  font-family: 'Nunito', 'sans-serif';
+  border-radius: 3px;
+  border: 1px solid #84BEE4;
+  margin-right: 5px;
+}
+
+#giphForm {
+  margin-top: -40px;
+}
+
 h5 {
   font-family: 'Nunito', 'sans-serif';
   font-weight: bold;
@@ -32,11 +45,17 @@ p {
   background-color: #F5F6FA;
   margin-bottom: 5px;
   font-family: 'Nunito', 'sans-serif';
+  width: 100%
 }
+
 
 .btn {
   background-color: #84BEE4;
   font-family: 'Nunito', 'sans-serif';
+}
+
+#btn {
+  width: 50%;
 }
 
 .items {
@@ -55,9 +74,14 @@ div header {
 form {
   outline: none;
   resize: none;
-  overflow: auto;
+  overflow: none;
   /* margin-left: 30px; */
   margin-top: 50px;
+}
+
+#giphList {
+  margin-bottom: 20px;
+  
 }
 
 input:focus,
@@ -66,16 +90,12 @@ select:focus {
   outline: none;
 }
 
-button.submit-btn {
-  margin-left: 538px;
-}
-
 #container {
   /* text-align: center; */
   margin-top: 50px;
   border: 1px solid lightgray;
   border-radius: 3px;
-  width: 300px;
+  width: 350px;
   height: 380px;
   overflow: auto;
 }
@@ -102,17 +122,12 @@ h6 {
   color: gray;
 }
 
-.items {
-  /* text-align: center; */
-  justify-content: space-between;
-  display: flex;
-}
 
 .hideClass {
   display: none;
 }
 
-h5.post-text {
+h5, h6, img {
   cursor: pointer;
 }
 
@@ -137,3 +152,22 @@ h5.post-text {
 #commentButton {
   margin-top: 5px;
 }
+
+@media only screen and (max-width: 950px) {
+  div.d-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  #formArea {
+    width: 80%;
+    display: center;
+  }
+  .jumbotron {
+    margin-bottom: 10px;
+  }
+  #container {
+    width: 80%;
+  }
+
+}
+  
