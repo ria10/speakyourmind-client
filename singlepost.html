@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speak Your Mind</title>
     <link rel="shortcut icon" type="image/png" href="./images/clouds.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://kit.fontawesome.com/2a4d3a74ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- <script defer src="script.js"></script> -->
 </head>
 <body>
      <!-- navbar -->
@@ -34,6 +37,32 @@
           </div>
         </div>
       </nav>
-    
+      <main class="items">
+        <div class="container">
+
+        </div>
+        
+        <div>
+          <form action="" class="hideClass">
+            <div class="col-6">
+                <!-- <label for="inputJournal" class="form-label"></label> -->
+                <textarea class="form-control" id="inputComment" rows="10" cols="5" placeholder="Start typing..." mx-4 maxlength="300"></textarea>
+                <button type="submit" id="commentButton" class="btn btn-primary">Comment</button> 
+              </div>
+            </form>
+        </div>
+        
+      </main>
+      <secton class="comments">
+        <div class="comments">
+          <h4>Comments</h4>
+          <div>
+            <table class="commentsTable">
+              
+            </table>
+            
+          </div>
+      </secton>
+    <script src="singlepost.js"></script>
 </body>
 </html>

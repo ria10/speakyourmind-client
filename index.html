@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speak Your Mind</title>
     <link rel="shortcut icon" type="image/png" href="./images/clouds.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/2a4d3a74ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script defer type="module" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -56,10 +59,35 @@
                 <form action="allposts.html">
                     <div class="col">
                         <!-- <label for="inputJournal" class="form-label"></label> -->
-                        <textarea class="form-control" id="inputJournal" rows="25" cols="3" placeholder="Start typing..." mx-4 maxlength="300"></textarea>
-                        <button type="submit" class="submitBtn submit-btn mt-1 btn btn-light"><i class="far fa-paper-plane"></i></button>
-                      </div>
+                        <textarea class="form-control" id="inputJournal" rows="15" cols="5" placeholder="Start typing..." mx-4 maxlength="300"></textarea>
+                     
+                          <button type="submit" id="submit-btn" class="submit-btn mt-1 btn btn-light"><i class="far fa-paper-plane"></i></button>
+                         <button id="getGiph">Add a giph</button>
+                       
+                        
+          
                     </form>
+                    <form action="" class="hideClass" id="giphForm">
+                      <div class="col">
+                          <!-- <label for="inputJournal" class="form-label"></label> -->
+                          <input type="text" id="giphy" placeholder="Search a giph">
+                          <input type="submit" id="getGiphButton" value="get the giph" class="btn btn-danger">
+                        </div>
+                      </form>
+
+                      <form action="" class="" id="giphList">
+                        <div class="col">
+                            <!-- <label for="inputJournal" class="form-label"></label> -->
+                            <label for="a"><img class="selectedImg"src="" alt=""></label>
+                            <input type="radio" name="selectedGif"id="a" value="">
+                            <label for="b"><img class="selectedImg"src="" alt=""></label>
+                            <input type="radio" name="selectedGif" id="b" value="">
+                            <label for="c"><img class="selectedImg" src="" alt=""></label>
+                            <input type="radio" name="selectedGif" id="c" value="">
+                            <input type="submit" id="getListButton" value="get the giph" class="btn btn-danger">
+                          </div>
+                        </form>
+
             </section>
 
             <!-- list of entries -->
@@ -77,6 +105,6 @@
     <footer>
 
     </footer>
-    <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+    
 </body>
 </html>

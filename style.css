@@ -6,12 +6,13 @@ img.logo {
      text-align: center;
  }
 
- form {
-     outline: none;
-     resize: none;
-     overflow: auto;
-     
- }
+form {
+  outline: none;
+  resize: none;
+  overflow: auto;
+  /* margin-left: 30px; */
+  margin-top: 50px;
+}
 
   input:focus, textarea:focus, select:focus {
      outline: none;
@@ -28,4 +29,23 @@ img.logo {
 }
 hr{
     width: 100%
+}
+
+.container {
+  /* text-align: center; */
+  margin-top: 50px;
+}
+
+h4 {
+  margin-left: 60px;
+}
+
+.items {
+  /* text-align: center; */
+  justify-content: space-between;
+  display: flex;
+}
+
+.hideClass {
+  display: none;
 }
