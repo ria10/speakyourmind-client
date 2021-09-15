@@ -10,6 +10,8 @@ form {
   outline: none;
   resize: none;
   overflow: auto;
+  /* margin-left: 30px; */
+  margin-top: 50px;
 }
 
 input:focus,
@@ -18,12 +20,26 @@ select:focus {
   outline: none;
 }
 
- button.submit-btn {
-     margin-left: 538px;
-     background: none;
- }
+button.submit-btn {
+  margin-left: 538px;
+  background: none;
+}
 
- .container {
-     border: 1px lightgray solid;
-     border-radius: 3px;
- }
+.container {
+  /* text-align: center; */
+  margin-top: 50px;
+}
+
+h4 {
+  margin-left: 60px;
+}
+
+.items {
+  /* text-align: center; */
+  justify-content: space-between;
+  display: flex;
+}
+
+.hideClass {
+  display: none;
+}
