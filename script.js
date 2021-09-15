@@ -109,7 +109,6 @@ window.onload = async function () {
 
 document.querySelector("#getGiph").addEventListener("click", (e) => {
   e.preventDefault();
-
   document.querySelector("#giphForm").classList.remove("hideClass");
 });
 

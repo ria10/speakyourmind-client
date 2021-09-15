@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="style.css">
     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer type="module" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src = "bundle.js"></script>
 </head>
 <body>
 
@@ -57,8 +60,8 @@
     <main>
         <div class="d-flex justify-content-around">
             <section>
+              <div class="col">
                 <form action="allposts.html">
-                    <div class="col">
                         <!-- <label for="inputJournal" class="form-label"></label> -->
                         <textarea class="form-control" id="inputJournal" rows="15" cols="5" placeholder="What's on your mind?" mx-4 maxlength="300"></textarea>
                         
@@ -69,21 +72,21 @@
           
                     </form>
                     <form action="" class="hideClass" id="giphForm">
-                      <div class="col">
+
                           <!-- <label for="inputJournal" class="form-label"></label> -->
                           <input type="text" id="giphy" placeholder="Search a giph">
                           <input type="submit" id="getGiphButton" value="get the giph" class="btn btn-danger">
-                        </div>
+  
                       </form>
 
                       <form action="" class="hideClass" id="giphList">
-                        <div class="col">
+                      
                             <!-- <label for="inputJournal" class="form-label"></label> -->
                             <label for="c"><img class="selectedImg" src="" alt=""></label>
-                            <input type="radio" name="selectedGif" id="c" value="">
                             <input type="submit" id="getListButton" value="get the giph" class="btn btn-danger">
-                          </div>
+    
                         </form>
+                </div>
 
             </section>
 
