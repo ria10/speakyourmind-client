@@ -1,5 +1,25 @@
 body {
-  background: #F5F6FA;
+  background: #f5f6fa;
+  font-family: "Nunito", "sans-serif";
+}
+
+body:focus {
+  outline: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.jumbotron h5:hover {
+  font-size: 1.5em;
+}
+
+div.jumbotron img:hover {
+  box-shadow: 2px 2px 2px 2px #bebebe;
+
 }
 
 a {
@@ -7,78 +27,16 @@ a {
   color: #84BEE4;
 }
 
-#footer-container{
-  /* position: absolute;
-  background-color: #F5F6FA;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: center; */
-  font-family: 'Nunito', 'sans-serif';
+h5, h2 {
+  font-family: "Nunito", "sans-serif";
+  font-weight: bold;
 }
-
-li {
-  font-family: 'Nunito', 'sans-serif';
-}
-
-
 
 input[type="text"] {
-  font-family: 'Nunito', 'sans-serif';
+  font-family: "Nunito", "sans-serif";
   border-radius: 3px;
-  border: 1px solid #84BEE4;
+  border: 1px solid #84bee4;
   margin-right: 5px;
-}
-
-#giphForm {
-  margin-top: -40px;
-}
-
-h5 {
-  font-family: 'Nunito', 'sans-serif';
-  font-weight: bold;
-}
-
-h2 {
-  font-family: 'Nunito', 'sans-serif';
-  font-weight: bold;
-}
-
-p {
-  font-family: 'Nunito', 'sans-serif';
-}
-
-#navbar {
-  background-color: #CDD8E5;
-}
-
-/* li a {
-  color: #004D98 !important; 
-} */
-
-#inputJournal {
-  background-color: #F5F6FA;
-  margin-bottom: 5px;
-  font-family: 'Nunito', 'sans-serif';
-  width: 100%
-}
-
-
-.btn {
-  background-color: #84BEE4;
-  font-family: 'Nunito', 'sans-serif';
-}
-
-#btn {
-  width: 50%;
-}
-
-.items {
-  display: flex;
-  justify-content: space-around;
-}
-
-img.logo {
-  height: 50px;
 }
 
 div header {
@@ -89,13 +47,95 @@ form {
   outline: none;
   resize: none;
   overflow: none;
-  /* margin-left: 30px; */
   margin-top: 50px;
+}
+
+h4 {
+  margin-top: 50px;
+  margin-left: 60px;
+  font-family: "Nunito", "sans-serif";
+  font-weight: bold;
+}
+h6 {
+  font-family: "Nunito", "sans-serif";
+  font-weight: bolder;
+}
+
+h5,
+h6,
+img {
+  cursor: pointer;
+}
+
+.btn-react {
+  margin-top: 5px;
+}
+
+.hideClass {
+  display: none;
+  margin-bottom: 1em;
+}
+
+.btn {
+  background-color: #84bee4;
+  font-family: "Nunito", "sans-serif";
+  color: white;
+}
+
+/* .items {
+  display: flex;
+  justify-content: space-around;
+} */
+
+.structure {
+  margin-top: 50px;
+  padding-left: 100px;
+  flex-shrink: 3;
+  width: 60%
+}
+
+img.logo {
+  height: 50px;
+}
+
+.comments {
+  padding: auto;
+  margin: auto;
+  height: 380px;
+  overflow: auto;
+}
+
+#submit-btn {
+  margin-bottom: 4px;
+}
+
+#footer-container{
+  font-family: 'Nunito', 'sans-serif';
+  margin-top: 40px;
+}
+
+
+#giphForm {
+  margin-top: -43px;
+}
+
+#navbar {
+  background-color: #cdd8e5;
+}
+
+#inputJournal {
+  background-color: #f5f6fa;
+  margin-bottom: 5px;
+  font-family: "Nunito", "sans-serif";
+  width: 100%;
+}
+
+#btn {
+  width: 50%;
 }
 
 #giphList {
   margin-bottom: 20px;
-  
 }
 
 input:focus,
@@ -114,63 +154,31 @@ select:focus {
   overflow: auto;
 }
 
-.structure {
-  margin-top: 50px;
-  padding-left: 100px;
-  flex-shrink: 3;
-}
-
-h4 {
-  margin-top: 50px;
-  margin-left: 60px;
-  font-family: 'Nunito', 'sans-serif';
-  font-weight: bold;
-}
-h6 {
-  font-family: 'Nunito', 'sans-serif';
-  font-weight: bolder;
-}
 #dateTime {
   margin-top: -5px;
-  font-family: 'Nunito', 'sans-serif';
+  font-family: "Nunito", "sans-serif";
   color: gray;
 }
 
 
-.hideClass {
-  display: none;
-}
-
-h5, h6, img {
-  cursor: pointer;
-}
-
-/* .commentsTable {
-  border: 1px solid lightgray;
-  border-radius: 3px;
-} */
-
 #inputComment {
-  font-family: 'Nunito', 'sans-serif';
-}
-
-.comments {
-  /* width: 40%; */
-  /* padding-left: 50px; */
-  padding: auto;
-  margin: auto;
-  height: 380px;
-  overflow: auto;
+  font-family: "Nunito", "sans-serif";
 }
 
 #commentButton {
   margin-top: 5px;
 }
 
+#charcount {
+  margin-bottom: 5px;
+  font-family: "Nunito", "sans-serif";
+}
+
 @media only screen and (max-width: 950px) {
   div.d-flex {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   #formArea {
     width: 80%;
@@ -182,6 +190,16 @@ h5, h6, img {
   #container {
     width: 80%;
   }
-
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  img#giphId {
+    width: 100%;
+    height: auto;
+  }
+  .logo {
+    content: url(./images/clouds3.png)
+  }
 }
-  

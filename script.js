@@ -5,6 +5,7 @@ const baseUrl = "http://localhost:3000";
 h5 = document.querySelector(".post-text");
 p = document.querySelector(".post-date");
 
+// adding event listener for submit button so that the post shows up in the right section
 submitBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   const rawResponse = await fetch(`${baseUrl}/posts`, {
@@ -17,9 +18,8 @@ submitBtn.addEventListener("click", async (e) => {
   });
 
   const content = await rawResponse.json();
-  console.log(content);
 
-  console.log(content);
+  // adding toastify notif to show the post has been created
   Toastify({
     text: "Post created successfully",
     duration: 3000,
@@ -40,6 +40,7 @@ submitBtn.addEventListener("click", async (e) => {
   containerDiv.insertBefore(h5, containerDiv.firstChild);
 });
 
+// adding event listener for clicking on the text posts in the right section
 h5.addEventListener("click", async () => {
   const mussi = h5.getAttribute("id");
   console.log(mussi);
@@ -52,7 +53,7 @@ h5.addEventListener("click", async () => {
 
   window.location.replace("singlepost.html");
 });
-
+// getting all posts when the window loads
 window.onload = async function () {
   const rawResponse = await fetch("http://localhost:3000/posts");
   const content = await rawResponse.json();
@@ -76,7 +77,7 @@ window.onload = async function () {
 
         const postData = await item.json();
 
-        window.location.replace("singlepost.html");
+        window.location.replace("giph.html");
       });
     } else {
       let h5 = document.createElement("h5");
@@ -87,29 +88,29 @@ window.onload = async function () {
       document.getElementById("container").append(p);
 
       h5.setAttribute("id", post.id);
+      h5.addEventListener("click", async () => {
+        const mussi = h5.getAttribute("id");
+        console.log(mussi);
+        localStorage.setItem("reqId", mussi);
+        const items = localStorage.getItem("reqId");
+        console.log(items);
+        const item = await fetch(`http://localhost:3000/posts/${mussi}`);
+
+        const postData = await item.json();
+
+        window.location.replace("singlepost.html");
+      });
     }
-
-    h5.addEventListener("click", async () => {
-      const mussi = h5.getAttribute("id");
-      console.log(mussi);
-      localStorage.setItem("reqId", mussi);
-      const items = localStorage.getItem("reqId");
-      console.log(items);
-      const item = await fetch(`http://localhost:3000/posts/${mussi}`);
-
-      const postData = await item.json();
-
-      window.location.replace("singlepost.html");
-    });
   }
 };
-
+// removing the visibility hidden for the searching a gif section
 document.querySelector("#getGiph").addEventListener("click", (e) => {
   e.preventDefault();
 
   document.querySelector("#giphForm").classList.remove("hideClass");
 });
 
+//adding event listener for the gif search
 document
   .querySelector("#getGiphButton")
   .addEventListener("click", async (e) => {
@@ -133,6 +134,7 @@ document
     localStorage.setItem("imgUrl", imgs.src);
   });
 
+// adding event listener for choosing the gif
 document
   .querySelector("#getListButton")
   .addEventListener("click", async (e) => {
@@ -173,3 +175,10 @@ document
 
     containerDiv.insertBefore(img, containerDiv.firstChild);
   });
+
+  // character input
+
+  function charcountupdate(str) {
+    var lng = str.length;
+    document.getElementById("charcount").innerHTML = lng + '/200';
+  }

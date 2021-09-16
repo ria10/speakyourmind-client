@@ -1,6 +1,8 @@
 window.onload = async function () {
   const postId = localStorage.getItem("reqId");
+  console.log(postId);
   const giphId = localStorage.getItem("giphId");
+  console.log(giphId);
 
   const commentsTable = document.querySelector(".commentsTable");
   const likesCount = document.querySelector("#likesCount");
@@ -10,22 +12,16 @@ window.onload = async function () {
   const postText = document.querySelector("#post-text");
   const postDate = document.querySelector("#post-date");
 
-  const rawData = await fetch(`http://localhost:3000/posts/${postId}`);
+  const rawData = await fetch(`http://localhost:3000/posts/${giphId}`);
 
   const post = await rawData.json();
-  if (post.text.includes("giphy")) {
-    const im = document.createElement("img");
-    im.src = post.text;
-    postDate.textContent = post.date;
-    im.setAttribute("id", post.id);
-    const containerDiv = document.querySelector(".structure");
+  console.log(post);
 
-    containerDiv.insertBefore(im, containerDiv.firstChild);
-  } else {
-    postText.textContent = post.text;
-    postDate.textContent = post.date;
-    likesCount.textContent = post.likes;
-  }
+  const im = document.getElementById("giphImg");
+  im.src = post.text;
+  postDate.textContent = post.date;
+
+  im.setAttribute("class", post.id);
 
   //get comments on pageload
   const postComment = await fetch(
@@ -160,10 +156,3 @@ window.onload = async function () {
 
   cryCount.textContent = post.crying.length;
 };
-
-// character count
-
-function charcountupdate(str) {
-  var lng = str.length;
-  document.getElementById("charcount").innerHTML = lng + '/200';
-}

@@ -14,7 +14,7 @@
     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://kit.fontawesome.com/2a4d3a74ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script defer src="singlepost.js"></script>
+    <script defer src="giph.js"></script>
 </head>
 <body>
      <!-- navbar -->
@@ -37,21 +37,21 @@
         </div>
       </nav>
       <main class="items d-flex justify-content-evenly flex-row">
-        <div class=" structure">
-         <h5 id="post-text" class="post-text"></h5>
+        <div class="structure">
+         <img src="" alt="" id="giphImg"><br>
          <p id="post-date" class="post-date"></p>
-         <button class="btn addBtn">Add a comment</button>
-         <button class="btn likesButton"><i class="far fa-thumbs-up"></i> <span id="likesCount"></span></button>
-         <button class="btn cryButton"><i class="fas fa-sad-tear"></i> <span id="cryCount"></span></button>
-         <button class="btn laughButton"><i class="fas fa-grin-tears"></i> <span id="laughCount"></span></button>
+         <button class="btn btn-react addBtn">Add a comment</button>
+         <button class="btn btn-react likesButton"><i class="far fa-thumbs-up"></i> <span id="likesCount"></span></button>
+         <button class="btn btn-react cryButton"><i class="fas fa-sad-tear"></i> <span id="cryCount"></span></button>
+         <button class="btn btn-react laughButton"><i class="fas fa-grin-tears"></i> <span id="laughCount"></span></button>
         </div>
         
         
           <form action="" class="hideClass" id="">
             <div class="">
-                <span id="charcount"></span>
+              <span id="charcount"></span>
                 <textarea onkeyup="charcountupdate(this.value)" class="form-control" id="inputComment" rows="5" cols="20"  placeholder="Comment here" maxlength="300"></textarea>
-                <button type="submit" id="commentButton" class="btn ">Comment</button> 
+                <button type="submit" id="commentButton" class="btn">Comment</button> 
               </div>
             </form>
         
@@ -67,6 +67,7 @@
             
           </div>
       </section>
+
       <footer>
         <div class="text-center py-5"id="footer-container">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   

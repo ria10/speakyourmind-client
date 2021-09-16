@@ -23,11 +23,8 @@
     <!-- navbar -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"> <img class ="logo" src="./images/logo.png" alt="speak your mind logo"> </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
+          <a class="navbar-brand" href="index.html"> <img class ="logo" src="./images/logofont.png" alt="speak your mind logo"> </a>
+          <div class="" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
@@ -52,19 +49,18 @@
 
         <!-- input box -->
     <main>
-        <div class="d-flex justify-content-around">
-            <section>
-                <form id="formArea"action="">
-                    <div class="col">
-                        <!-- <label for="inputJournal" class="form-label"></label> -->
-                        <textarea class="form-control" id="inputJournal" rows="15" cols="60" placeholder="What's on your mind?" mx-4 maxlength="300"></textarea>
+      <div class="d-flex justify-content-around">
+        <section>
+          <form id="formArea"action="">
+            <div class="col">
+              <div id="charcount" class="d-flex justify-content-end"></div>
+                        <textarea onkeyup="charcountupdate(this.value)" class="form-control" id="inputJournal" rows="15" cols="60" placeholder="What's on your mind?" mx-4 maxlength="200"></textarea>
                         <div id="btn d-inline-flex flex-row justify-content-end">
 
                           <button type="submit" id="submit-btn" class="submit-btn mt-1 btn"><i class="far fa-paper-plane"></i></button>
                          <button class="btn" id="getGiph">Add a gif</button>
                          <div class="col hideClass" id="giphForm">
                            <div class="d-flex flex-row justify-content-end">
-                             <!-- <label for="inputJournal" class="form-label"></label> -->
                              <input type="text" id="giphy" placeholder="Search for a gif">
                              <input type="submit" id="getGiphButton" value="Search" class="btn">
 
@@ -76,17 +72,14 @@
                         
           
                     </form>
-                    <!-- <form action="" class="hideClass" id="giphForm">
-                      </form> -->
 
                       <form action="" class="hideClass" id="giphList">
                         <div class="col">
-                            <!-- <label for="inputJournal" class="form-label"></label> -->
                             <label for="c"><img class="selectedImg" src="" alt=""></label>
                             <input type="submit" id="getListButton" value="Choose" class="btn">
                           </div>
                         </form>
-
+                      </div>
             </section>
 
             <!-- list of entries -->
