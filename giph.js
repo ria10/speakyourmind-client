@@ -12,7 +12,7 @@ window.onload = async function () {
   const postText = document.querySelector("#post-text");
   const postDate = document.querySelector("#post-date");
 
-  const rawData = await fetch(`http://localhost:3000/posts/${giphId}`);
+  const rawData = await fetch(`http://localhost:3000/post/${giphId}`);
 
   const post = await rawData.json();
   console.log(post);

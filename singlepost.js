@@ -10,7 +10,7 @@ window.onload = async function () {
   const postText = document.querySelector("#post-text");
   const postDate = document.querySelector("#post-date");
 
-  const rawData = await fetch(`http://localhost:3000/posts/${postId}`);
+  const rawData = await fetch(`http://localhost:3000/post/${postId}`);
 
   const post = await rawData.json();
   if (post.text.includes("giphy")) {
