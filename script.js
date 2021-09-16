@@ -2,10 +2,10 @@ const submitBtn = document.querySelector(".submit-btn");
 const textInput = document.querySelector("#inputJournal");
 const baseUrl = "https://speak-your-mind-server.herokuapp.com";
 
+// adding event listener for submit button so that the post shows up in the right section
+const image = document.querySelector(".post-image");
 h5 = document.querySelector(".post-text");
 p = document.querySelector(".post-date");
-
-// adding event listener for submit button so that the post shows up in the right section
 submitBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   const rawResponse = await fetch(`${baseUrl}/posts`, {
@@ -24,16 +24,18 @@ submitBtn.addEventListener("click", async (e) => {
     text: "Post created successfully",
     duration: 3000,
     close: true,
-    gravity: "top", // `top` or `bottom`
-    position: "left", // `left`, `center` or `right`
+    gravity: "top",
+    position: "left",
     backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-    stopOnFocus: true, // Prevents dismissing of toast on hover
+    stopOnFocus: true,
     onClick: function () {}, // Callback after click
   }).showToast();
 
   h5.textContent = content.text;
   p.textContent = content.date;
   h5.setAttribute("id", content.id);
+
+  console.log(`content id:${content.id}`);
 
   containerDiv.insertBefore(p, containerDiv.firstChild);
 
@@ -43,17 +45,29 @@ submitBtn.addEventListener("click", async (e) => {
 // adding event listener for clicking on the text posts in the right section
 h5.addEventListener("click", async () => {
   const mussi = h5.getAttribute("id");
-  console.log(mussi);
+
   localStorage.setItem("reqId", mussi);
   const items = localStorage.getItem("reqId");
-  console.log(items);
-  const item = await fetch(`https://speak-your-mind-server.herokuapp.com/posts/${mussi}`);
+
+  const item = await fetch(`https://speak-your-mind-server.herokuapp.com/post/${mussi}`);
+
 
   const postData = await item.json();
 
   window.location.replace("singlepost.html");
 });
-// getting all posts when the window loads
+image.addEventListener("click", async () => {
+  const requiredGiph = image.getAttribute("id");
+  console.log(`${requiredGiph} is me `);
+  localStorage.setItem("giphId", requiredGiph);
+  const items = localStorage.getItem("giphId");
+  console.log(items);
+  const item = await fetch(`https://speak-your-mind-server.herokuapp.com/post/${requiredGiph}`);
+
+  const postData = await item.json();
+
+  window.location.replace("giph.html");
+});
 window.onload = async function () {
   const rawResponse = await fetch("https://speak-your-mind-server.herokuapp.com/posts");
   const content = await rawResponse.json();
@@ -65,6 +79,7 @@ window.onload = async function () {
       let parag = document.createElement("p");
       parag.textContent = post.date;
       image.setAttribute("id", post.id);
+      image.setAttribute("class", post - image);
       document.getElementById("container").append(image);
       document.getElementById("container").append(parag);
       image.addEventListener("click", async () => {
@@ -73,7 +88,7 @@ window.onload = async function () {
         localStorage.setItem("giphId", requiredGiph);
         const items = localStorage.getItem("giphId");
         console.log(items);
-        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/${requiredGiph}`);
+        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/post/${requiredGiph}`);
 
         const postData = await item.json();
 
@@ -94,7 +109,7 @@ window.onload = async function () {
         localStorage.setItem("reqId", mussi);
         const items = localStorage.getItem("reqId");
         console.log(items);
-        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/posts/${mussi}`);
+        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/post/${mussi}`);
 
         const postData = await item.json();
 
@@ -158,22 +173,25 @@ document
       text: "Post created successfully",
       duration: 3000,
       close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "left", // `left`, `center` or `right`
+      gravity: "top",
+      position: "left",
       backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      stopOnFocus: true,
       onClick: function () {}, // Callback after click
     }).showToast();
 
-    const img = document.createElement("img");
-    img.src = content.text;
+    image.setAttribute("id", content.id);
+    console.log(`content id:${content.id}`);
+
+    image.src = content.text;
+
     p.textContent = content.date;
-    img.setAttribute("id", content.id);
+
     const containerDiv = document.querySelector("#container");
 
     containerDiv.insertBefore(p, containerDiv.firstChild);
 
-    containerDiv.insertBefore(img, containerDiv.firstChild);
+    containerDiv.insertBefore(image, containerDiv.firstChild);
   });
 
   // character input
