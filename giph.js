@@ -24,7 +24,7 @@ window.onload = async function () {
 
   //get comments on pageload
   const postComment = await fetch(
-    `http://localhost:3000/post/${postId}/comment`
+    `http://localhost:3000/post/${giphId}/comment`
   );
 
   const allComments = await postComment.json();
@@ -54,7 +54,7 @@ window.onload = async function () {
       e.preventDefault();
       const textInput = document.querySelector("#inputComment");
       const postComment = await fetch(
-        `http://localhost:3000/post/${postId}/comment`,
+        `http://localhost:3000/post/${giphId}/comment`,
         {
           method: "POST",
           headers: {
@@ -96,7 +96,7 @@ window.onload = async function () {
     .addEventListener("click", async (e) => {
       e.preventDefault();
       const currentLikes = await fetch(
-        `http://localhost:3000/post/${postId}/likes`,
+        `http://localhost:3000/post/${giphId}/likes`,
         {
           method: "POST",
           headers: {
@@ -118,7 +118,7 @@ window.onload = async function () {
     .addEventListener("click", async (e) => {
       e.preventDefault();
       const currentLikes = await fetch(
-        `http://localhost:3000/post/${postId}/laugh`,
+        `http://localhost:3000/post/${giphId}/laugh`,
         {
           method: "POST",
           headers: {
@@ -138,7 +138,7 @@ window.onload = async function () {
   document.querySelector(".cryButton").addEventListener("click", async (e) => {
     e.preventDefault();
     const currentLikes = await fetch(
-      `http://localhost:3000/post/${postId}/crying`,
+      `http://localhost:3000/post/${giphId}/crying`,
       {
         method: "POST",
         headers: {
