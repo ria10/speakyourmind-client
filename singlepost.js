@@ -10,7 +10,7 @@ window.onload = async function () {
   const postText = document.querySelector("#post-text");
   const postDate = document.querySelector("#post-date");
 
-  const rawData = await fetch(`http://localhost:3000/post/${postId}`);
+  const rawData = await fetch(`https://speak-your-mind-server.herokuapp.com/post/${postId}`);
 
   const post = await rawData.json();
   if (post.text.includes("giphy")) {
@@ -29,7 +29,7 @@ window.onload = async function () {
 
   //get comments on pageload
   const postComment = await fetch(
-    `http://localhost:3000/post/${postId}/comment`
+    `https://speak-your-mind-server.herokuapp.com/post/${postId}/comment`
   );
 
   const allComments = await postComment.json();
@@ -59,7 +59,7 @@ window.onload = async function () {
       e.preventDefault();
       const textInput = document.querySelector("#inputComment");
       const postComment = await fetch(
-        `http://localhost:3000/post/${postId}/comment`,
+        `https://speak-your-mind-server.herokuapp.com/post/${postId}/comment`,
         {
           method: "POST",
           headers: {
@@ -101,7 +101,7 @@ window.onload = async function () {
     .addEventListener("click", async (e) => {
       e.preventDefault();
       const currentLikes = await fetch(
-        `http://localhost:3000/post/${postId}/likes`,
+        `https://speak-your-mind-server.herokuapp.com/post/${postId}/likes`,
         {
           method: "POST",
           headers: {
@@ -123,7 +123,7 @@ window.onload = async function () {
     .addEventListener("click", async (e) => {
       e.preventDefault();
       const currentLikes = await fetch(
-        `http://localhost:3000/post/${postId}/laugh`,
+        `https://speak-your-mind-server.herokuapp.com/post/${postId}/laugh`,
         {
           method: "POST",
           headers: {
@@ -143,7 +143,7 @@ window.onload = async function () {
   document.querySelector(".cryButton").addEventListener("click", async (e) => {
     e.preventDefault();
     const currentLikes = await fetch(
-      `http://localhost:3000/post/${postId}/crying`,
+      `https://speak-your-mind-server.herokuapp.com/post/${postId}/crying`,
       {
         method: "POST",
         headers: {

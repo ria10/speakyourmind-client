@@ -1,6 +1,6 @@
 const submitBtn = document.querySelector(".submit-btn");
 const textInput = document.querySelector("#inputJournal");
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://speak-your-mind-server.herokuapp.com";
 
 h5 = document.querySelector(".post-text");
 p = document.querySelector(".post-date");
@@ -47,7 +47,7 @@ h5.addEventListener("click", async () => {
   localStorage.setItem("reqId", mussi);
   const items = localStorage.getItem("reqId");
   console.log(items);
-  const item = await fetch(`http://localhost:3000/posts/${mussi}`);
+  const item = await fetch(`https://speak-your-mind-server.herokuapp.com/posts/${mussi}`);
 
   const postData = await item.json();
 
@@ -55,7 +55,7 @@ h5.addEventListener("click", async () => {
 });
 // getting all posts when the window loads
 window.onload = async function () {
-  const rawResponse = await fetch("http://localhost:3000/posts");
+  const rawResponse = await fetch("https://speak-your-mind-server.herokuapp.com/posts");
   const content = await rawResponse.json();
 
   for (post of content) {
@@ -73,7 +73,7 @@ window.onload = async function () {
         localStorage.setItem("giphId", requiredGiph);
         const items = localStorage.getItem("giphId");
         console.log(items);
-        const item = await fetch(`http://localhost:3000/posts/${requiredGiph}`);
+        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/${requiredGiph}`);
 
         const postData = await item.json();
 
@@ -94,7 +94,7 @@ window.onload = async function () {
         localStorage.setItem("reqId", mussi);
         const items = localStorage.getItem("reqId");
         console.log(items);
-        const item = await fetch(`http://localhost:3000/posts/${mussi}`);
+        const item = await fetch(`https://speak-your-mind-server.herokuapp.com/posts/${mussi}`);
 
         const postData = await item.json();
 
