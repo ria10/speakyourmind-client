@@ -32,6 +32,3 @@ A website that allows you to anonymously post journal entries.
 
 - Getting the gifs and the posts to show on the new page through event listener.
 - Getting the counter on the emojis to work.
-
-## Bugs
-
