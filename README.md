@@ -1,6 +1,12 @@
 # Speak Your Mind - the client side!
 
-## Installation
+## Description
+## Installation & Usage
 
-## Usage
+## Technologies
+
+## Process
+
+
+
 
