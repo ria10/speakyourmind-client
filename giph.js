@@ -154,6 +154,6 @@ window.onload = async function () {
 };
 
 function charcountupdate(str) {
-  var lng = str.length;
+  let lng = str.length;
   document.getElementById("charcount").innerHTML = lng + '/200';
 }
