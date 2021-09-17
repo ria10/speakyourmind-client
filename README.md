@@ -28,6 +28,9 @@ A website that allows you to anonymously post journal entries.
 
 ### Wins
 
+- Implementing the Toastify API to show toasties when posts or comments have been created.
+- Implementing the Giphy API to fetch gifs.
+
 ### Challenges
 
 - Getting the gifs and the posts to show on the new page through event listener.
